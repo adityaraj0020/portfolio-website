@@ -1,1 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aditya Raj - Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js" crossorigin="anonymous"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            transition: background 0.3s, color 0.3s;
+            background-color: white;
+            color: black;
+            text-align: center;
+        }
+        .dark-mode {
+            background-color: #121212;
+            color: white;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        #theme-toggle {
+            font-size: 20px;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            font-size: 24px;
+            margin: 20px 0;
+        }
+        nav a {
+            color: inherit;
+            transition: transform 0.3s;
+        }
+        nav a:hover {
+            transform: scale(1.2);
+        }
+        .skills-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .skill-bar {
+            width: 200px;
+            background: #ddd;
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+        }
+        .skill-bar span {
+            display: block;
+            height: 20px;
+            background: #007BFF;
+            width: 0;
+            transition: width 2s ease-in-out;
+        }
+        .project-card {
+            background: rgba(0, 0, 0, 0.05);
+            padding: 15px;
+            border-radius: 10px;
+            margin: 10px auto;
+            width: 80%;
+            transition: transform 0.3s;
+        }
+        .project-card:hover {
+            transform: scale(1.05);
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Aditya Raj</h1>
+        <button id="theme-toggle">🌞</button>
+    </header>
+    <p class="subtitle">Frontend Developer | C++ Programmer | UI/UX Enthusiast</p>
+    
+    <nav>
+        <a href="https://linkedin.com/in/yourprofile" target="_blank"><i class="fab fa-linkedin"></i></a>
+        <a href="https://github.com/yourgithub" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="mailto:22053049@kiit.ac.in"><i class="fas fa-envelope"></i></a>
+    </nav>
+    
+    <section id="skills">
+        <h2>Skills</h2>
+        <div class="skills-container">
+            <div class="skill-bar"><span data-width="90%"></span> HTML</div>
+            <div class="skill-bar"><span data-width="85%"></span> CSS</div>
+            <div class="skill-bar"><span data-width="75%"></span> JavaScript</div>
+            <div class="skill-bar"><span data-width="80%"></span> React.js</div>
+            <div class="skill-bar"><span data-width="70%"></span> C++</div>
+        </div>
+    </section>
+    
+    <section id="projects">
+        <h2>Projects</h2>
+        <div class="project-card">
+            <h3>Portfolio Website</h3>
+            <p>Built a responsive portfolio with interactive UI using HTML, CSS, and JavaScript.</p>
+        </div>
+        <div class="project-card">
+            <h3>E-Commerce App</h3>
+            <p>Developed a Firebase-powered e-commerce platform with authentication.</p>
+        </div>
+    </section>
+    
+    <section id="contact">
+        <h2>Contact Me</h2>
+        <form>
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <textarea placeholder="Your Message" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+    
+    <script>
+        document.getElementById("theme-toggle").addEventListener("click", function() {
+            document.body.classList.toggle("dark-mode");
+            this.textContent = document.body.classList.contains("dark-mode") ? "🌞" : "🌙";
+        });
 
+        // Skill Bar Animation
+        window.addEventListener("load", function() {
+            document.querySelectorAll(".skill-bar span").forEach(bar => {
+                bar.style.width = bar.getAttribute("data-width");
+            });
+        });
+    </script>
+</body>
+</html>
